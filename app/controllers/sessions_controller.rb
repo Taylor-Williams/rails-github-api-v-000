@@ -8,5 +8,6 @@ class SessionsController < ApplicationController
       req.headers['Accept'] = 'application/json'
     end
     body = JSON.parse(response.body)
+    session['access_token'] = body['access_token']
   end
 end
