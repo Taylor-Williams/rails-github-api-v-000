@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
         'client_secret': ENV['GITHUB_CLIENT_SECRET'], 'code': params[:code] }
       req.headers['Accept'] = 'application/json'
     end
-    body = JSON.parse(response.body)
+    body = JSON.parse(resp.body)
     session['token'] = body['access_token']
     redirect_to auth_path
   end
